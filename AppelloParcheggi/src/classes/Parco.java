@@ -153,11 +153,11 @@ public class Parco {
 			}
 			System.out.println("Scontrino: ");
 			System.out.println(posto.getVeicolo());
-			System.out.println("\nOra ingresso: ");
+			System.out.println("Ora ingresso: ");
 			System.out.println(posto.getOraIngresso());
-			System.out.println("\nOra uscita: ");
+			System.out.println("Ora uscita: ");
 			System.out.println(orologio);
-			System.out.println("\nCosto totale: ");
+			System.out.println("Costo totale: ");
 			System.out.println((posto.getDurata() * a.getCosto()));
 			tic();
 		} else if (v instanceof Motocicletta) {
@@ -171,11 +171,11 @@ public class Parco {
 			}
 			System.out.println("Scontrino: ");
 			System.out.println(posto.getVeicolo());
-			System.out.print("\nOra ingresso: ");
+			System.out.print("Ora ingresso: ");
 			System.out.println(posto.getOraIngresso());
-			System.out.print("\nOra uscita: ");
+			System.out.print("Ora uscita: ");
 			System.out.println(orologio);
-			System.out.print("\nCosto totale: ");
+			System.out.print("Costo totale: ");
 			System.out.println((posto.getDurata() * m.getCosto()));
 			tic();
 		}

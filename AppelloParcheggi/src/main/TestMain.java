@@ -49,9 +49,11 @@ public class TestMain {
 		int in = 7;
 		for (int i = 0; i < 80; i++) {
 			if (i < 40) {
-				veicoli[i] = new Automobile(genRandString(in));
+				String sq = genRandString(in);
+				veicoli[i] = new Automobile(sq);
 			} else if (i >= 40 && i < 80) {
-				veicoli[i] = new Motocicletta(genRandString(in));
+				String sq = genRandString(in);
+				veicoli[i] = new Motocicletta(sq);
 			}
 		}
 	}
@@ -67,7 +69,9 @@ public class TestMain {
 			int n = rnd.nextInt(c);
 			switch (n) {
 			case 0:
-				double p = Math.random();
+				int na = 10;
+				int a = rnd.nextInt(na) / na;
+				double p = a;
 				int n1 = rnd.nextInt(c);
 				metodoForBInner(n1, p, parco, veicoli);
 				break;
