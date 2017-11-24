@@ -14,9 +14,14 @@ public class Automobile extends Veicolo {
 		super(targa);
 	}
 
+	/**
+	 * 
+	 * @return costo
+	 */
 	@Override
 	public double getCosto() {
-		return 0.10;
+		double costo = 0.10;
+		return costo;
 	}
 
 	@Override

@@ -19,6 +19,10 @@ public class PostoException extends Exception {
 		super();
 	}
 
+	/**
+	 * 
+	 * @param arg0
+	 */
 	public PostoException(String arg0) {
 		super(arg0);
 	}

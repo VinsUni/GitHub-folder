@@ -22,6 +22,10 @@ public abstract class Veicolo {
 		this.targa = targa;
 	}
 
+	/**
+	 * 
+	 * @return costo
+	 */
 	public abstract double getCosto();
 
 	public String getTarga() {
@@ -43,22 +47,23 @@ public abstract class Veicolo {
 
 	@Override
 	public boolean equals(Object obj) {
+		boolean res = true;
 		if (this == obj){
-			return true;
+			res = true;
 		}else if (obj == null){
-			return false;
+			res = false;
 		}else if (getClass() != obj.getClass()){
-			return false;
+			res = false;
 		}
 		Veicolo other = (Veicolo) obj;
 		if (targa == null) {
 			if (other.targa != null){
-				return false;
+				res = false;
 			}
 		} else if (!targa.equals(other.targa)){
-			return false;
+			res = false;
 		}
-		return true;
+		return res;
 	}
 
 	

@@ -14,7 +14,7 @@ public class Posto implements Comparable<Posto>, Serializable {
 	/**
 	 * 
 	 */
-	private static final long SERIALVERSIONUID = 1L;
+	private static final long serialVersionUID = 1L;
 
 	public enum Stato {
 		LIBERO, OCCUPATO
@@ -43,8 +43,16 @@ public class Posto implements Comparable<Posto>, Serializable {
 	 */
 	public Posto() {
 		stato = Stato.LIBERO;
+		veicolo = null;
+		oraIngresso = 0;
+		durata = 0;
+		costoTotale = 0;
 	}
 
+	/**
+	 * 
+	 * @return veicolo
+	 */
 	public Veicolo getVeicolo() {
 		return veicolo;
 	}
@@ -126,22 +134,23 @@ public class Posto implements Comparable<Posto>, Serializable {
 
 	@Override
 	public boolean equals(Object obj) {
+		boolean res = true;
 		if (this == obj){
-			return true;
+			res = true;
 		}else if (obj == null){
-			return false;
+			res = false;
 		}else if (getClass() != obj.getClass()){
-			return false;
+			res = false;
 		}
 		Posto other = (Posto) obj;
 		if (veicolo == null) {
 			if (other.veicolo != null){
-				return false;
+				res = false;
 			}
 		} else if (!veicolo.equals(other.veicolo)){
-			return false;
+			res = false;
 		}
-		return true;
+		return res;
 	}
 
 	

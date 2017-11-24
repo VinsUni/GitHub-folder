@@ -33,6 +33,10 @@ public class Parco {
 		}
 	}
 
+	/**
+	 * 
+	 * @return orologio
+	 */
 	public int getOrologio() {
 		return orologio;
 	}
@@ -113,8 +117,11 @@ public class Parco {
 					p.libera();
 				}
 			}
-			System.out.println("Scontrino:" + "\n" + posto.getVeicolo() + "\nOra ingresso: " + posto.getOraIngresso()
-					+ "\nOra uscita: " + orologio + "\nCosto totale: " + (posto.getDurata() * a.getCosto()));
+			System.out.println("Scontrino: ");
+			System.out.println(posto.getVeicolo());
+			System.out.println("\nOra ingresso: " + posto.getOraIngresso());
+			System.out.println("\nOra uscita: " + orologio);
+			System.out.println("\nCosto totale: " + (posto.getDurata() * a.getCosto()));
 			tic();
 		} else if (v instanceof Motocicletta) {
 			Motocicletta m = (Motocicletta) v;
@@ -125,8 +132,11 @@ public class Parco {
 					p.libera();
 				}
 			}
-			System.out.println("Scontrino:" + "\n" + posto.getVeicolo() + "\nOra ingresso: " + posto.getOraIngresso()
-					+ "\nOra uscita: " + orologio + "\nCosto totale: " + (posto.getDurata() * m.getCosto()));
+			System.out.println("Scontrino: ");
+			System.out.println(posto.getVeicolo());
+			System.out.println("\nOra ingresso: " + posto.getOraIngresso());
+			System.out.println("\nOra uscita: " + orologio);
+			System.out.println("\nCosto totale: " + (posto.getDurata() * m.getCosto()));
 			tic();
 		}
 	}
@@ -172,7 +182,7 @@ public class Parco {
 	}
 	
 	public void promo(String string, int sconto, String codice) {
-		if (string.equals("Moto")) {
+		if ("Moto".equals(string)) {
 			for (Posto p : postiMoto) {
 				if (p.getStato().equals(Stato.OCCUPATO)) {
 					if (codice.charAt(0) == p.getVeicolo().getTarga().charAt((p.getVeicolo().getTarga().length() - 1))
@@ -184,7 +194,7 @@ public class Parco {
 					}
 				}
 			}
-		} else if (string.equals("Auto")) {
+		} else if ("Auto".equals(string)) {
 			promoSubA(codice, sconto);
 		}
 	}

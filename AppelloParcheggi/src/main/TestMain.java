@@ -16,6 +16,9 @@ import exceptions.PostoException;
  */
 public class TestMain {
 
+	/**
+	 * @constructor private
+	 */
 	private TestMain(){}
 	
 	/**
@@ -44,11 +47,12 @@ public class TestMain {
 
 	static void metodoForB(Parco parco, Veicolo[] veicoli) {
 		for (int i = 0; i < 99; i++) {
-			int n = rnd.nextInt(2);
+			int c = 2;
+			int n = rnd.nextInt(c);
 			switch (n) {
 			case 0:
 				double p = rnd.nextDouble();
-				int n1 = rnd.nextInt(2);
+				int n1 = rnd.nextInt(c);
 				metodoForBInner(n1, p, parco, veicoli);
 				break;
 			case 1:
@@ -60,15 +64,17 @@ public class TestMain {
 	}
 
 	static void metodoForBInner(int n1, double p, Parco parco, Veicolo[] veicoli) {
+		int c = 40;
+		int c1 = 10;
+		int c2 = 1;
 		switch (n1) {
 		case 0:
-			int num = (rnd.nextInt(40) + 40);
-			int num2 = (rnd.nextInt(10) + 1);
+			int num = (rnd.nextInt(c) + c);
+			int num2 = (rnd.nextInt(c1) + c2);
 			metodoForBInnerA(parco, veicoli, num, num2, p);
-
 			break;
 		case 1:
-			int numero = (rnd.nextInt(40) + 40);
+			int numero = (rnd.nextInt(c) + c);
 			metodoForBInnerB(numero, veicoli, parco, p);
 			break;
 		default:
@@ -96,7 +102,8 @@ public class TestMain {
 					parco.uscita(m);
 				}
 			} else {
-				int rn = rnd.nextInt(40);
+				int c = 40;
+				int rn = rnd.nextInt(c);
 				parco.uscita(veicoli[rn]);
 				Automobile a = (Automobile) veicoli[numero];
 				if (parco.isPresente(a)) {
@@ -108,19 +115,26 @@ public class TestMain {
 		}
 	}
 
+	/**
+	 * 
+	 * @param args
+	 */
 	public static void main(String[] args) {
 
 		int orologio = 99;
 		int postiaut = 40;
 		int postimo = 40;
+		int c = 20;
+		int c1 = 1;
+		int c3 = 2;
 		Parco parco = new Parco(orologio, postiaut, postimo);
 		Veicolo[] veicoli = new Veicolo[80];
 		metodoForA(veicoli);
 		metodoForB(parco, veicoli);
-		int sconto1 = (rnd.nextInt(20) + 1);
-		int sconto2 = (rnd.nextInt(20) + 1);
-		parco.promo("Moto", sconto1, genRandString(2));
-		parco.promo("Auto", sconto2, genRandString(2));
+		int sconto1 = (rnd.nextInt(c) + c1);
+		int sconto2 = (rnd.nextInt(c) + c1);
+		parco.promo("Moto", sconto1, genRandString(c3));
+		parco.promo("Auto", sconto2, genRandString(c3));
 
 	}
 
