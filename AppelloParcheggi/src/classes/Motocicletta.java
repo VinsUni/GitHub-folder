@@ -24,6 +24,9 @@ public class Motocicletta extends Veicolo {
 		return costo;
 	}
 
+	/**
+	 * @override
+	 */
 	@Override
 	public String toString() {
 		return "Moto " + super.toString();

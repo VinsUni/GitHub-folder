@@ -28,15 +28,25 @@ public abstract class Veicolo {
 	 */
 	public abstract double getCosto();
 
+	/**
+	 * 
+	 * @return targa
+	 */
 	public String getTarga() {
 		return targa;
 	}
 
+	/**
+	 * @override
+	 */
 	@Override
 	public String toString() {
 		return "[targa=" + targa + ", getTarga()=" + getTarga() + "]";
 	}
 
+	/**
+	 * @override
+	 */
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -45,26 +55,28 @@ public abstract class Veicolo {
 		return result;
 	}
 
+	/**
+	 * @override
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		boolean res = true;
-		if (this == obj){
+		if (this == obj) {
 			res = true;
-		}else if (obj == null){
+		} else if (obj == null) {
 			res = false;
-		}else if (getClass() != obj.getClass()){
+		} else if (getClass() != obj.getClass()) {
 			res = false;
 		}
 		Veicolo other = (Veicolo) obj;
 		if (targa == null) {
-			if (other.targa != null){
+			if (other.targa != null) {
 				res = false;
 			}
-		} else if (!targa.equals(other.targa)){
+		} else if (!targa.equals(other.targa)) {
 			res = false;
 		}
 		return res;
 	}
 
-	
 }

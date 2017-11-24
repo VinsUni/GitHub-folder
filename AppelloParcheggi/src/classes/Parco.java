@@ -41,6 +41,11 @@ public class Parco {
 		return orologio;
 	}
 
+	/**
+	 * 
+	 * @param lista
+	 * @return
+	 */
 	static Posto getPostoLibero(List<Posto> lista) {
 		Posto posto = new Posto();
 		for (Posto p : lista) {
@@ -51,6 +56,11 @@ public class Parco {
 		return posto;
 	}
 
+	/**
+	 * 
+	 * @param lista
+	 * @return
+	 */
 	static boolean isFull(List<Posto> lista) {
 		boolean res = true;
 		for (Posto p : lista) {
@@ -61,7 +71,13 @@ public class Parco {
 		return res;
 	}
 
-	public void entrataA(Veicolo v, int durata) throws IsFullException{
+	/**
+	 * 
+	 * @param v
+	 * @param durata
+	 * @throws IsFullException
+	 */
+	public void entrataA(Veicolo v, int durata) throws IsFullException {
 		if (isFull(postiMoto)) {
 			throw new IsFullException();
 		} else {
@@ -77,8 +93,14 @@ public class Parco {
 			tic();
 		}
 	}
-	
-	public void entrataB(Veicolo v, int durata) throws IsFullException{
+
+	/**
+	 * 
+	 * @param v
+	 * @param durata
+	 * @throws IsFullException
+	 */
+	public void entrataB(Veicolo v, int durata) throws IsFullException {
 		if (isFull(postiAuto)) {
 			throw new IsFullException();
 		} else {
@@ -94,7 +116,14 @@ public class Parco {
 			tic();
 		}
 	}
-	
+
+	/**
+	 * 
+	 * @param v
+	 * @param durata
+	 * @throws IsFullException
+	 * @throws PostoException
+	 */
 	public void entrata(Veicolo v, int durata) throws IsFullException, PostoException {
 		if (durata < orologio) {
 			if (v != null || v instanceof Motocicletta) {
@@ -106,6 +135,11 @@ public class Parco {
 
 	}
 
+	/**
+	 * 
+	 * @param v
+	 * @throws PostoException
+	 */
 	public void uscita(Veicolo v) throws PostoException {
 		Posto posto = new Posto();
 		if (v instanceof Automobile) {
@@ -119,9 +153,12 @@ public class Parco {
 			}
 			System.out.println("Scontrino: ");
 			System.out.println(posto.getVeicolo());
-			System.out.println("\nOra ingresso: " + posto.getOraIngresso());
-			System.out.println("\nOra uscita: " + orologio);
-			System.out.println("\nCosto totale: " + (posto.getDurata() * a.getCosto()));
+			System.out.println("\nOra ingresso: ");
+			System.out.println(posto.getOraIngresso());
+			System.out.println("\nOra uscita: ");
+			System.out.println(orologio);
+			System.out.println("\nCosto totale: ");
+			System.out.println((posto.getDurata() * a.getCosto()));
 			tic();
 		} else if (v instanceof Motocicletta) {
 			Motocicletta m = (Motocicletta) v;
@@ -134,40 +171,56 @@ public class Parco {
 			}
 			System.out.println("Scontrino: ");
 			System.out.println(posto.getVeicolo());
-			System.out.println("\nOra ingresso: " + posto.getOraIngresso());
-			System.out.println("\nOra uscita: " + orologio);
-			System.out.println("\nCosto totale: " + (posto.getDurata() * m.getCosto()));
+			System.out.print("\nOra ingresso: ");
+			System.out.println(posto.getOraIngresso());
+			System.out.print("\nOra uscita: ");
+			System.out.println(orologio);
+			System.out.print("\nCosto totale: ");
+			System.out.println((posto.getDurata() * m.getCosto()));
 			tic();
 		}
 	}
 
+	/**
+	 * pass to next unit
+	 */
 	public void tic() {
 		orologio -= 1;
 	}
 
-	public boolean isPresente(Veicolo v){
+	/**
+	 * 
+	 * @param v
+	 * @return
+	 */
+	public boolean isPresente(Veicolo v) {
 		boolean res = false;
-		if(v instanceof Motocicletta){
+		if (v instanceof Motocicletta) {
 			Motocicletta m = (Motocicletta) v;
-			for(Posto p: postiMoto){
-				if(p.getVeicolo().equals(m)){
+			for (Posto p : postiMoto) {
+				if (p.getVeicolo().equals(m)) {
 					res = true;
-				}else{
+				} else {
 					continue;
 				}
 			}
-		}else if(v instanceof Automobile){
+		} else if (v instanceof Automobile) {
 			Automobile a = (Automobile) v;
-			for(Posto p: postiAuto){
-				if(p.getVeicolo().equals(a)){
+			for (Posto p : postiAuto) {
+				if (p.getVeicolo().equals(a)) {
 					res = true;
 				}
 			}
 		}
 		return res;
 	}
-	
-	public void promoSubA(String codice, int sconto){
+
+	/**
+	 * 
+	 * @param codice
+	 * @param sconto
+	 */
+	public void promoSubA(String codice, int sconto) {
 		for (Posto p : postiAuto) {
 			if (p.getStato().equals(Stato.OCCUPATO)) {
 				if (codice.charAt(0) == p.getVeicolo().getTarga().charAt((p.getVeicolo().getTarga().length() - 1))
@@ -180,7 +233,13 @@ public class Parco {
 			}
 		}
 	}
-	
+
+	/**
+	 * 
+	 * @param string
+	 * @param sconto
+	 * @param codice
+	 */
 	public void promo(String string, int sconto, String codice) {
 		if ("Moto".equals(string)) {
 			for (Posto p : postiMoto) {
@@ -199,6 +258,9 @@ public class Parco {
 		}
 	}
 
+	/**
+	 * print state
+	 */
 	public void stato() {
 		System.out.println("Elenco posti Auto:");
 		for (Posto p : postiAuto) {

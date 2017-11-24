@@ -23,8 +23,9 @@ public class IsFullException extends Exception {
 	 * 
 	 * @param message
 	 */
-	public IsFullException(String message) {
+	private IsFullException(String message) {
 		super(message);
 	}
+	
 
 }

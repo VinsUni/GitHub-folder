@@ -19,13 +19,19 @@ public class TestMain {
 	/**
 	 * @constructor private
 	 */
-	private TestMain(){}
-	
+	private TestMain() {
+	}
+
 	/**
 	 * @variable
 	 */
 	static final Random rnd = new Random();
 
+	/**
+	 * 
+	 * @param l
+	 * @return
+	 */
 	static String genRandString(int l) {
 		String a = "qwertyuioplkjhgfdsazxcvbnm";
 		char[] c = new char[l];
@@ -35,23 +41,33 @@ public class TestMain {
 		return new String(c);
 	}
 
+	/**
+	 * 
+	 * @param veicoli
+	 */
 	static void metodoForA(Veicolo[] veicoli) {
+		int in = 7;
 		for (int i = 0; i < 80; i++) {
 			if (i < 40) {
-				veicoli[i] = new Automobile(genRandString(7));
+				veicoli[i] = new Automobile(genRandString(in));
 			} else if (i >= 40 && i < 80) {
-				veicoli[i] = new Motocicletta(genRandString(7));
+				veicoli[i] = new Motocicletta(genRandString(in));
 			}
 		}
 	}
 
+	/**
+	 * 
+	 * @param parco
+	 * @param veicoli
+	 */
 	static void metodoForB(Parco parco, Veicolo[] veicoli) {
 		for (int i = 0; i < 99; i++) {
 			int c = 2;
 			int n = rnd.nextInt(c);
 			switch (n) {
 			case 0:
-				double p = rnd.nextDouble();
+				double p = Math.random();
 				int n1 = rnd.nextInt(c);
 				metodoForBInner(n1, p, parco, veicoli);
 				break;
@@ -63,6 +79,13 @@ public class TestMain {
 		}
 	}
 
+	/**
+	 * 
+	 * @param n1
+	 * @param p
+	 * @param parco
+	 * @param veicoli
+	 */
 	static void metodoForBInner(int n1, double p, Parco parco, Veicolo[] veicoli) {
 		int c = 40;
 		int c1 = 10;
@@ -82,6 +105,14 @@ public class TestMain {
 		}
 	}
 
+	/**
+	 * 
+	 * @param parco
+	 * @param veicoli
+	 * @param num
+	 * @param num2
+	 * @param p
+	 */
 	static void metodoForBInnerA(Parco parco, Veicolo[] veicoli, int num, int num2, double p) {
 		try {
 			if (p < 0.6) {
@@ -94,6 +125,13 @@ public class TestMain {
 		}
 	}
 
+	/**
+	 * 
+	 * @param numero
+	 * @param veicoli
+	 * @param parco
+	 * @param p
+	 */
 	static void metodoForBInnerB(int numero, Veicolo[] veicoli, Parco parco, double p) {
 		try {
 			if (p < 0.6) {

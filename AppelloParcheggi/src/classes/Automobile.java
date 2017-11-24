@@ -24,6 +24,9 @@ public class Automobile extends Veicolo {
 		return costo;
 	}
 
+	/**
+	 * @override
+	 */
 	@Override
 	public String toString() {
 		return "Auto " + super.toString();
