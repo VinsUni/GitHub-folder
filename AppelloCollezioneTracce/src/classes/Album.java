@@ -273,12 +273,22 @@ public class Album implements Comparable<Album>, Serializable{
 		}else if (getClass() != obj.getClass()){
 			res = false;
 		}
+		res = inEquals(res, obj);
+		return res;
+	}
+	
+	/**
+	 * 
+	 * @param res
+	 * @param obj
+	 * @return
+	 */
+	public boolean inEquals(boolean res, Object obj){
 		Album other = (Album) obj;
 		if (id != other.id){
 			res = false;
 		}
 		return res;
 	}
-	
 	
 }

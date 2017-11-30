@@ -129,15 +129,25 @@ public class Traccia implements Comparable<Traccia>, Serializable {
 			res = false;
 		}else if (getClass() != obj.getClass()){
 			res = false;
-		}else if(obj instanceof Traccia){
-			Traccia other = (Traccia) obj;
-			if (id != other.id){
-				res = false;
-			}
 		}
+		 res = inEquals(res, obj);
 		return res;
 	}
 
+	/**
+	 * 
+	 * @param res
+	 * @param obj
+	 * @return
+	 */
+	public boolean inEquals(boolean res, Object obj){
+		Traccia other = (Traccia) obj;
+		if (id != other.id){
+			res = false;
+		}
+		return res;
+	}
+	
 	/**
 	 * @override toString() method
 	 */
