@@ -21,8 +21,13 @@ public class Traccia implements Comparable<Traccia>, Serializable {
 	 * static variable
 	 */
 	private static final long serialVersionUID = 1L;
-	private int id;
+	private transient int id;
+	
+	/**
+	 * static variable
+	 */
 	static int cont = 0;
+	
 	private String titolo;
 	private String esecutore;
 	private int durata;
@@ -117,18 +122,20 @@ public class Traccia implements Comparable<Traccia>, Serializable {
 	 */
 	@Override
 	public boolean equals(Object obj) {
+		boolean res = true;
 		if (this == obj){
-			return true;
+			res = true;
 		}else if (obj == null){
-			return false;
+			res = false;
 		}else if (getClass() != obj.getClass()){
-			return false;
+			res = false;
+		}else if(obj instanceof Traccia){
+			Traccia other = (Traccia) obj;
+			if (id != other.id){
+				res = false;
+			}
 		}
-		Traccia other = (Traccia) obj;
-		if (id != other.id){
-			return false;
-		}
-		return true;
+		return res;
 	}
 
 	/**

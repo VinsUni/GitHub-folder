@@ -28,8 +28,13 @@ public class Album implements Comparable<Album>, Serializable{
 
 	public enum Supporto{ CD, VINILE, USB}
 	
-	private int id;
-	static int cont = 0;
+	private transient int id;
+	
+	/**
+	 * static variable
+	 */
+	 static int cont = 0;
+	 
 	private List<Traccia> listaTracce;
 	private String data;
 	private Supporto supporto;
@@ -43,11 +48,10 @@ public class Album implements Comparable<Album>, Serializable{
 	 * @throws SupportoException
 	 */
 	public Album(Supporto supporto, String data) throws SupportoException {
+		this(supporto, data, "", "");
 		if(supporto.equals(Supporto.CD) || supporto.equals(Supporto.VINILE ) || supporto.equals(Supporto.USB)){
 			id = ++cont;
 			listaTracce = new ArrayList<>();
-			this.data = data;
-			this.supporto = supporto;
 		}else{
 			throw new SupportoException();
 		}
@@ -204,6 +208,22 @@ public class Album implements Comparable<Album>, Serializable{
 	}
 
 	/**
+	 * 
+	 * @return listaTracce
+	 */
+	public List<Traccia> getListaTracce() {
+		return listaTracce;
+	}
+
+	/**
+	 * 
+	 * @param listaTracce
+	 */
+	public void setListaTracce(List<Traccia> listaTracce) {
+		this.listaTracce = listaTracce;
+	}
+
+	/**
 	 * @override toString() method
 	 */
 	@Override
@@ -245,18 +265,19 @@ public class Album implements Comparable<Album>, Serializable{
 	 */
 	@Override
 	public boolean equals(Object obj) {
+		boolean res = true;
 		if (this == obj){
-			return true;
+			res = true;
 		}else if (obj == null){
-			return false;
+			res = false;
 		}else if (getClass() != obj.getClass()){
-			return false;
+			res = false;
 		}
 		Album other = (Album) obj;
 		if (id != other.id){
-			return false;
+			res = false;
 		}
-		return true;
+		return res;
 	}
 	
 	

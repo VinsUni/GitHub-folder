@@ -80,12 +80,12 @@ public class TestMain {
 	 * @param durate
 	 */
 	static void popolamentoTracce(Traccia[] tracce, String[] titoli, String[] esecutori, int[] durate){
-		for(int i = 0; i < 100; i++){
-			try {
-				tracce[i] = new Traccia(titoli[rnd.nextInt(titoli.length)], esecutori[rnd.nextInt(esecutori.length)], durate[rnd.nextInt(durate.length)]);
-			} catch (NumberException e) {
-				System.out.println("NumberException()");
-			} 
+		try {
+			for(int i = 0; i < 100; i++){
+				tracce[i] = new Traccia(titoli[rnd.nextInt(titoli.length)], esecutori[rnd.nextInt(esecutori.length)], durate[rnd.nextInt(durate.length)]); 
+			}
+		} catch (NumberException e) {
+			System.out.println("NumberException()");
 		}
 	}
 	
