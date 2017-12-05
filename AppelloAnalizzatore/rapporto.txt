@@ -1,0 +1,19 @@
+
+Messaggio: m6.txt
+Rapporto messaggio: 
+Lunghezza messaggio = 227, 
+Numero stringhe sospette = 8, 
+Punteggio totale = 63, 
+Punteggio Medio = 0.0
+Messaggio: m6.txt
+Rapporto messaggio: 
+Lunghezza messaggio = 227, 
+Numero stringhe sospette = 8, 
+Punteggio totale = 63, 
+Punteggio Medio = 0.0
+Messaggio: m6.txt
+Rapporto messaggio: 
+Lunghezza messaggio = 227, 
+Numero stringhe sospette = 8, 
+Punteggio totale = 63, 
+Punteggio Medio = 21.0
