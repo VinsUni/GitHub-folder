@@ -20,6 +20,8 @@ import classes.Rapporto;
  */
 public class TestMain {
 
+	private TestMain() {}
+	
 	/**
 	 * Static main method.
 	 * 
@@ -27,7 +29,7 @@ public class TestMain {
 	 * @throws IOException
 	 */
 	public static void main(String[] args) {
-
+		
 		File[] messaggi = new File[7];
 		for (int i = 0; i < messaggi.length; i++) {
 			messaggi[i] = new File("m" + i + ".txt");
