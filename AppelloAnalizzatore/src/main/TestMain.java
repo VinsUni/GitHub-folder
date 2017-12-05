@@ -20,6 +20,9 @@ import classes.Rapporto;
  */
 public class TestMain {
 
+	/**
+	 * Private main class
+	 */
 	private TestMain() {}
 	
 	/**
@@ -45,10 +48,12 @@ public class TestMain {
 				pw = new PrintWriter(fw);
 				System.out.println(
 						"________________________________________________________________________________________________");
-				System.out.println("\nMessaggio: " + m);
+				System.out.print("\nMessaggio: ");
+				System.out.println(m);
 				rapporto = fr.analisi(m);
 				System.out.println(rapporto.toString());
-				pw.write("\nMessaggio: " + m);
+				pw.write("\nMessaggio: ");
+				pw.write(m.toString());
 				pw.write(rapporto.toString());
 			}
 		} catch (IOException e) {

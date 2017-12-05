@@ -23,13 +23,19 @@ public class FileClass {
 	 */
 	public FileClass() {
 		stringheSospette = new HashMap<>();
-		stringheSospette.put("bomba", 8);
-		stringheSospette.put("dos", 6);
-		stringheSospette.put("uccidere", 10);
-		stringheSospette.put("CIA", 9);
-		stringheSospette.put("FBI", 9);
-		stringheSospette.put("attacco", 5);
-		stringheSospette.put("isis", 7);
+		int cinque = 5;
+		int sei = 6;
+		int sette = 7;
+		int otto = 8; 
+		int nove = 9;
+		int dieci = 10;
+		stringheSospette.put("bomba", otto);
+		stringheSospette.put("dos", sei);
+		stringheSospette.put("uccidere", dieci);
+		stringheSospette.put("CIA", nove);
+		stringheSospette.put("FBI", nove);
+		stringheSospette.put("attacco", cinque);
+		stringheSospette.put("isis", sette);
 	}
 
 	/**
@@ -56,7 +62,8 @@ public class FileClass {
 				if (stringa.contains(s)) {
 					++occorrenze;
 					punteggioTot += stringheSospette.get(s).intValue();
-					System.out.println("\n-Stringa sospetta trovata: " + s);
+					System.out.print("\n-Stringa sospetta trovata: ");
+					System.out.println(s);
 					System.out.println("-Riga in cui si trova: ");
 					System.out.println(stringa);
 				}
