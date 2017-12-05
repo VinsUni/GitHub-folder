@@ -48,11 +48,11 @@ public class TestMain {
 				pw = new PrintWriter(fw);
 				System.out.println(
 						"________________________________________________________________________________________________");
-				System.out.print("\nMessaggio: ");
+				System.out.print("Messaggio: ");
 				System.out.println(m);
 				rapporto = fr.analisi(m);
 				System.out.println(rapporto.toString());
-				pw.write("\nMessaggio: ");
+				pw.write("Messaggio: ");
 				pw.write(m.toString());
 				pw.write(rapporto.toString());
 			}

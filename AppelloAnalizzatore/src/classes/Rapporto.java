@@ -92,8 +92,8 @@ public class Rapporto {
 	 */
 	@Override
 	public String toString() {
-		return "\nRapporto messaggio: \nLunghezza messaggio = " + getLunghezza() + ", \nNumero stringhe sospette = " + getNumStringhe()
-				+ ", \nPunteggio totale = " + getPunteggioTot() + ", \nPunteggio Medio = " + getPunteggioMedio();
+		return "Rapporto messaggio: Lunghezza messaggio = " + getLunghezza() + ", Numero stringhe sospette = " + getNumStringhe()
+				+ ", Punteggio totale = " + getPunteggioTot() + ", Punteggio Medio = " + getPunteggioMedio();
 	}
 	
 	

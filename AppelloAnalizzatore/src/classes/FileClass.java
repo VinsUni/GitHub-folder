@@ -62,7 +62,7 @@ public class FileClass {
 				if (stringa.contains(s)) {
 					++occorrenze;
 					punteggioTot += stringheSospette.get(s).intValue();
-					System.out.print("\n-Stringa sospetta trovata: ");
+					System.out.print("-Stringa sospetta trovata: ");
 					System.out.println(s);
 					System.out.println("-Riga in cui si trova: ");
 					System.out.println(stringa);
