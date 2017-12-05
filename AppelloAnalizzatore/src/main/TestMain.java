@@ -9,8 +9,9 @@ package main;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 
-import classes.FileReader;
+import classes.FileClass;
 import classes.Rapporto;
 
 /**
@@ -25,30 +26,44 @@ public class TestMain {
 	 * @param args
 	 * @throws IOException
 	 */
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) {
 
 		File[] messaggi = new File[7];
 		for (int i = 0; i < messaggi.length; i++) {
 			messaggi[i] = new File("m" + i + ".txt");
 		}
-		FileReader fr = new FileReader();
+		FileClass fr = new FileClass();
 		FileWriter fw = null;
-		Rapporto rapporto;
+		PrintWriter pw = null;
+		Rapporto rapporto = new Rapporto();
 
 		try {
 			for (File m : messaggi) {
 				fw = new FileWriter("rapporto.txt", true);
-				System.out.println("________________________________________________________________________________________________");
+				pw = new PrintWriter(fw);
+				System.out.println(
+						"________________________________________________________________________________________________");
 				System.out.println("\nMessaggio: " + m);
 				rapporto = fr.analisi(m);
 				System.out.println(rapporto.toString());
-				fw.write("\nMessaggio: " + m);
-				fw.write(rapporto.toString());
+				pw.write("\nMessaggio: " + m);
+				pw.write(rapporto.toString());
 			}
 		} catch (IOException e) {
 			System.out.println("IOExcpetion()");
 		} finally {
-			fw.close();
+			try {
+				if (pw != null) {
+					pw.close();
+				}
+				if (fw != null) {
+					fw.close();
+				}
+			} catch (IOException e) {
+				System.out.println("IOExcpetion()");
+			} finally{
+				System.out.println();
+			}
 		}
 
 	}
