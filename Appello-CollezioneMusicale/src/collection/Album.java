@@ -21,10 +21,10 @@ import exception.EmptyListException;
 public class Album {
 
 	/**
-	 * id's counter 
+	 * id's counter
 	 */
 	static int cont = 0;
-	
+
 	private int id;
 	private Set<Traccia> lista;
 

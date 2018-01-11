@@ -15,23 +15,30 @@ import exception.NegNumException;
  * @class Traccia
  *
  */
-public class Traccia implements Comparable<Object>, Serializable {
+public class Traccia implements Comparable<Traccia>, Serializable {
 
 	/**
 	 * default static serial
 	 */
 	private static final long serialVersionUID = 1L;
-	
+
 	/**
 	 * id's counter
 	 */
 	static int cont = 0;
-	
-	private int id;
+
+	private transient int id;
 	private String titolo;
 	private String esecutore;
 	private int durata;
 
+	/**
+	 * 
+	 * @param titolo
+	 * @param esecutore
+	 * @param durata
+	 * @throws NegNumException
+	 */
 	public Traccia(String titolo, String esecutore, int durata) throws NegNumException {
 		id = ++cont;
 		this.titolo = titolo;
@@ -108,16 +115,21 @@ public class Traccia implements Comparable<Object>, Serializable {
 	 */
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Traccia other = (Traccia) obj;
-		if (id != other.id)
-			return false;
-		return true;
+		boolean res = true;
+		Traccia other = null;
+		if (this == obj) {
+			res = true;
+		} else if (obj == null) {
+			res = false;
+		} else if (getClass() != obj.getClass()) {
+			res = false;
+		} else if (obj instanceof Traccia) {
+			other = (Traccia) obj;
+			if (id != other.id) {
+				res = false;
+			}
+		}
+		return res;
 	}
 
 	/**
@@ -135,12 +147,8 @@ public class Traccia implements Comparable<Object>, Serializable {
 	 * @return
 	 */
 	@Override
-	public int compareTo(Object arg0) {
-		if (arg0 != null || arg0 instanceof Traccia) {
-			Traccia traccia = (Traccia) arg0;
-			return -(this.getDurata() - traccia.getDurata());
-		}
-		return -1;
+	public int compareTo(Traccia arg0) {
+		return -(this.getDurata() - arg0.getDurata());
 	}
 
 }

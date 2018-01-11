@@ -43,8 +43,9 @@ public class TestMain {
 	 * @return random string
 	 */
 	static String genRandString() {
+		final int n = 10;
 		String alph = "qwertyuiopasdfghjklzxcvbnm";
-		int len = rnd.nextInt(10);
+		int len = rnd.nextInt(n);
 		char[] seq = new char[len];
 		for (int i = 0; i < seq.length; i++) {
 			seq[i] = alph.charAt(rnd.nextInt(alph.length()));
@@ -58,20 +59,20 @@ public class TestMain {
 	 */
 	public static void main(String[] args) {
 
-		final int T = 100;
+		final int t = 100;
 
-		Traccia[] tracce = new Traccia[T];
-		String[] titoli = new String[T];
-		String[] esecutori = new String[T];
-		int[] durate = new int[T];
+		Traccia[] tracce = new Traccia[t];
+		String[] titoli = new String[t];
+		String[] esecutori = new String[t];
+		int[] durate = new int[t];
 
-		for (int i = 0; i < T; i++) {
+		for (int i = 0; i < t; i++) {
 			titoli[i] = genRandString();
 			esecutori[i] = genRandString();
-			durate[i] = rnd.nextInt(T);
+			durate[i] = rnd.nextInt(t);
 		}
 		try {
-			for (int i = 0; i < T; i++) {
+			for (int i = 0; i < t; i++) {
 				tracce[i] = new Traccia(titoli[rnd.nextInt(titoli.length)], esecutori[rnd.nextInt(esecutori.length)],
 						durate[rnd.nextInt(durate.length)]);
 			}
@@ -81,30 +82,31 @@ public class TestMain {
 			System.out.println();
 		}
 
-		final int A = 12;
-		final int C = 5;
-		
-		Album[] albums = new Album[A];
-		for(Album a: albums) {
-			List<Traccia> coll = new ArrayList<>(C);
-			for(int i = 0; i < C; i++) {
-				Traccia t = tracce[rnd.nextInt(tracce.length)];
-				if(coll.contains(t)) {
+		final int a = 12;
+		final int c = 5;
+
+		Album[] albums = new Album[a];
+		List<Traccia> coll = null;
+		for (Album alb : albums) {
+			coll = new ArrayList<>(c);
+			for (int i = 0; i < c; i++) {
+				Traccia track = tracce[rnd.nextInt(tracce.length)];
+				if (coll.contains(track)) {
 					continue;
-				}else {
-					coll.add(t);
+				} else {
+					coll.add(track);
 				}
 			}
-			a.addTraccia(coll);
+			alb.addTraccia(coll);
 		}
-		
-		System.out.println(albums[0].toString() );
-		
+
+		System.out.println(albums[0].toString());
+
 		Iterator<Traccia> it = albums[0].iteraTracce();
-		while(it.hasNext()) {
+		while (it.hasNext()) {
 			System.out.println(it.next());
 		}
-		
+
 		File collezione = new File("collezione_album.txt");
 		FileOutputStream fos = null;
 		ObjectOutputStream oos = null;
@@ -114,9 +116,9 @@ public class TestMain {
 		} catch (FileNotFoundException f) {
 			System.out.println("Exception " + f);
 		} catch (IOException ie) {
-			System.out.println("Exception " + ie );
+			System.out.println("Exception " + ie);
 		} finally {
-			if(fos != null || oos != null) {
+			if (fos != null || oos != null) {
 				try {
 					oos.close();
 					fos.close();
@@ -126,10 +128,9 @@ public class TestMain {
 					System.out.println();
 				}
 			}
-		
-			
+
 		}
-		
+
 	}
 
 }
